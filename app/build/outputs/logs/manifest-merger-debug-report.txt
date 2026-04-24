@@ -1,9 +1,14 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-20:12
-INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-20:12
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-12:12
+INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-12:12
+INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-12:12
+INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.navigation:navigation-common:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\91d48dbba0f1d4809f553591f00a8bbc\transformed\navigation-common-2.8.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\69656b47c29c1a170deaf3a253640fa5\transformed\navigation-runtime-2.8.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\edc99fc0e246461f9ff2bcbed5cd376c\transformed\navigation-common-ktx-2.8.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\05ab48262d1c69f24409acd059a634c7\transformed\navigation-runtime-ktx-2.8.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\7fa3f86e2422e028e6a25fb9bac3c035\transformed\navigation-compose-2.8.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.activity:activity:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\54070dd6c37b33dea5b6d1e550beb461\transformed\activity-1.9.2\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\eeaa3f851ca9f4c1e4b6c5af04d7b8d5\transformed\activity-ktx-1.9.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material3:material3-android:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\8801873331b3b3df777083e35fa7c189\transformed\material3-release\AndroidManifest.xml:17:1-22:12
@@ -23,19 +28,13 @@ MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.7.3] C:\Users\morp
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8b4f29872a4a9794e34b917d3a710683\transformed\ui-tooling-release\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\6e7b7b087f45eb21b0cd5ea309ac9c36\transformed\activity-compose-1.9.2\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8f1ff5ab224ac0d850dc127ec37c5202\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff1bc793aa0f2440c829ff45bd4b9385\transformed\ui-release\AndroidManifest.xml:2:1-7:12
 MERGED from [io.github.jan-tennert.supabase:functions-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff3e4c9b1a980a7d712a98448cd984a6\transformed\functions-kt-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [io.github.jan-tennert.supabase:realtime-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\066984c5cf329af7ea247517a4650623\transformed\realtime-kt-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [io.github.jan-tennert.supabase:postgrest-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\94be4a90ee485e3e38daf4d7e1cdf95c\transformed\postgrest-kt-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [io.github.jan-tennert.supabase:storage-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8a506fa3f1cbe6db46d3f89b04b7b94f\transformed\storage-kt-debug\AndroidManifest.xml:2:1-20:12
 MERGED from [io.github.jan-tennert.supabase:auth-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\cfcdd6c52a2f902c559e0ed610921a1e\transformed\auth-kt-debug\AndroidManifest.xml:2:1-20:12
-MERGED from [androidx.browser:browser:1.8.0] C:\Users\morpp\.gradle\caches\8.8\transforms\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\transformed\browser-1.8.0\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\3943455d5f53f0d0796ecbc5c914b60f\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\morpp\.gradle\caches\8.8\transforms\da879514aa47f09706e29067f37ebdd1\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7c75e7054f11f24bf5282f37adee4691\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
 MERGED from [io.github.jan-tennert.supabase:supabase-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\e59b33e82b155f321a5086792bbaf50c\transformed\supabase-kt-debug\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\morpp\.gradle\caches\8.8\transforms\afac27ee2972afa77c2362ae7e79ce6f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\morpp\.gradle\caches\8.8\transforms\777377c143f001ca65aee086faffcef3\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\3f05a45322721ba2737c4cffbc1be2f6\transformed\lifecycle-livedata-core-2.8.7\AndroidManifest.xml:17:1-22:12
@@ -43,13 +42,21 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.8.7] C:\Users\morp
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\948185af92f6d7b52a396a9d7c1ac64a\transformed\lifecycle-runtime-ktx-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\7a1d5cdd58ea666d220d7a54c9fbdc2e\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\1f3445f6928be7e1aba5e3cc4707e04b\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\8893af895d26a05623e6632537bd74cf\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\590c1d343d882a374a3a02659a22fa11\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:17:1-35:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\8893af895d26a05623e6632537bd74cf\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\07a2b293a8fa89296587d234c01a16e7\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff1bc793aa0f2440c829ff45bd4b9385\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.browser:browser:1.8.0] C:\Users\morpp\.gradle\caches\8.8\transforms\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\transformed\browser-1.8.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\3943455d5f53f0d0796ecbc5c914b60f\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\morpp\.gradle\caches\8.8\transforms\da879514aa47f09706e29067f37ebdd1\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7c75e7054f11f24bf5282f37adee4691\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\ca4701f11109c169000a9cc894640cd5\transformed\core-ktx-1.13.1\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\1c0e176f86cd2eae68fb2f82ffc2cd55\transformed\runtime-release\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\9352a465e710333175e70bdde3bc40d6\transformed\runtime-saveable-release\AndroidManifest.xml:2:1-7:12
 MERGED from [com.russhwolf:multiplatform-settings-coroutines-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\8811ccbf6d159b549343a421f7d3d8de\transformed\multiplatform-settings-coroutines-debug\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.gradle\caches\8.8\transforms\cead38e45e540c40ee91c3c3d116acaa\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
 MERGED from [com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\a221ae8f92b72d7af35b20b30643b47a\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:17:1-35:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\morpp\.gradle\caches\8.8\transforms\6ff183c95b188a88615d2ce29f1d4e2f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7b8ebaecba7c38c0a07f722dc3eefd3a\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -60,7 +67,6 @@ MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\morpp\.gradle\cache
 MERGED from [com.russhwolf:multiplatform-settings-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\94ed48092f0c21ebd071a8c16339dbfd\transformed\multiplatform-settings-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [co.touchlab:kermit-android-debug:2.0.5] C:\Users\morpp\.gradle\caches\8.8\transforms\d359a8224e721fd2a6df8bd34bae473b\transformed\kermit-debug\AndroidManifest.xml:2:1-7:12
 MERGED from [co.touchlab:kermit-core-android-debug:2.0.5] C:\Users\morpp\.gradle\caches\8.8\transforms\147867ad4c5d9275d2ae476dc786a5da\transformed\kermit-core-debug\AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.gradle\caches\8.8\transforms\cead38e45e540c40ee91c3c3d116acaa\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
 	package
 		INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -69,9 +75,13 @@ MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.
 		INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:3:5-67
+	android:name
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:3:22-64
 application
-ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:5-18:19
-INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:5-18:19
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:5-11:19
+INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:5-11:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8b4f29872a4a9794e34b917d3a710683\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.compose.ui:ui-tooling-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8b4f29872a4a9794e34b917d3a710683\transformed\ui-tooling-release\AndroidManifest.xml:22:5-26:19
 MERGED from [io.github.jan-tennert.supabase:storage-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8a506fa3f1cbe6db46d3f89b04b7b94f\transformed\storage-kt-debug\AndroidManifest.xml:8:5-18:19
@@ -80,10 +90,10 @@ MERGED from [io.github.jan-tennert.supabase:auth-kt-android-debug:3.0.3] C:\User
 MERGED from [io.github.jan-tennert.supabase:auth-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\cfcdd6c52a2f902c559e0ed610921a1e\transformed\auth-kt-debug\AndroidManifest.xml:8:5-18:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:23:5-33:19
-MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:28:5-89
 MERGED from [com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\a221ae8f92b72d7af35b20b30643b47a\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:23:5-33:19
 MERGED from [com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\a221ae8f92b72d7af35b20b30643b47a\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\morpp\.gradle\caches\8.8\transforms\6ff183c95b188a88615d2ce29f1d4e2f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
@@ -97,31 +107,43 @@ MERGED from [androidx.startup:startup-runtime:1.2.0] C:\Users\morpp\.gradle\cach
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:78-104
 	android:label
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:6:9-32
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:45-77
 	android:allowBackup
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:5:9-35
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:18-44
+	android:theme
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:4:105-146
 activity#com.morppad.operque.MainActivity
-ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:9:9-16:20
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:5:9-10:20
 	android:exported
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:11:13-36
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:5:48-71
 	android:name
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:10:13-41
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:5:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:12:13-15:29
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:6:13-9:29
 action#android.intent.action.MAIN
-ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:13:17-69
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:7:17-69
 	android:name
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:13:25-66
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:7:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:14:17-77
+ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:8:17-77
 	android:name
-		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:14:27-74
+		ADDED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml:8:27-74
 uses-sdk
 INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml
 INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml
+MERGED from [androidx.navigation:navigation-common:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\91d48dbba0f1d4809f553591f00a8bbc\transformed\navigation-common-2.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\91d48dbba0f1d4809f553591f00a8bbc\transformed\navigation-common-2.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\69656b47c29c1a170deaf3a253640fa5\transformed\navigation-runtime-2.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\69656b47c29c1a170deaf3a253640fa5\transformed\navigation-runtime-2.8.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\edc99fc0e246461f9ff2bcbed5cd376c\transformed\navigation-common-ktx-2.8.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\edc99fc0e246461f9ff2bcbed5cd376c\transformed\navigation-common-ktx-2.8.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\05ab48262d1c69f24409acd059a634c7\transformed\navigation-runtime-ktx-2.8.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\05ab48262d1c69f24409acd059a634c7\transformed\navigation-runtime-ktx-2.8.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\7fa3f86e2422e028e6a25fb9bac3c035\transformed\navigation-compose-2.8.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.8.1] C:\Users\morpp\.gradle\caches\8.8\transforms\7fa3f86e2422e028e6a25fb9bac3c035\transformed\navigation-compose-2.8.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.activity:activity:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\54070dd6c37b33dea5b6d1e550beb461\transformed\activity-1.9.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\54070dd6c37b33dea5b6d1e550beb461\transformed\activity-1.9.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.activity:activity-ktx:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\eeaa3f851ca9f4c1e4b6c5af04d7b8d5\transformed\activity-ktx-1.9.2\AndroidManifest.xml:5:5-44
@@ -160,8 +182,6 @@ MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\morpp\.gradle\ca
 MERGED from [androidx.activity:activity-compose:1.9.2] C:\Users\morpp\.gradle\caches\8.8\transforms\6e7b7b087f45eb21b0cd5ea309ac9c36\transformed\activity-compose-1.9.2\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8f1ff5ab224ac0d850dc127ec37c5202\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.material:material-icons-core-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8f1ff5ab224ac0d850dc127ec37c5202\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff1bc793aa0f2440c829ff45bd4b9385\transformed\ui-release\AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff1bc793aa0f2440c829ff45bd4b9385\transformed\ui-release\AndroidManifest.xml:5:5-44
 MERGED from [io.github.jan-tennert.supabase:functions-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff3e4c9b1a980a7d712a98448cd984a6\transformed\functions-kt-debug\AndroidManifest.xml:5:5-44
 MERGED from [io.github.jan-tennert.supabase:functions-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff3e4c9b1a980a7d712a98448cd984a6\transformed\functions-kt-debug\AndroidManifest.xml:5:5-44
 MERGED from [io.github.jan-tennert.supabase:realtime-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\066984c5cf329af7ea247517a4650623\transformed\realtime-kt-debug\AndroidManifest.xml:5:5-44
@@ -172,20 +192,10 @@ MERGED from [io.github.jan-tennert.supabase:storage-kt-android-debug:3.0.3] C:\U
 MERGED from [io.github.jan-tennert.supabase:storage-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\8a506fa3f1cbe6db46d3f89b04b7b94f\transformed\storage-kt-debug\AndroidManifest.xml:6:5-44
 MERGED from [io.github.jan-tennert.supabase:auth-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\cfcdd6c52a2f902c559e0ed610921a1e\transformed\auth-kt-debug\AndroidManifest.xml:6:5-44
 MERGED from [io.github.jan-tennert.supabase:auth-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\cfcdd6c52a2f902c559e0ed610921a1e\transformed\auth-kt-debug\AndroidManifest.xml:6:5-44
-MERGED from [androidx.browser:browser:1.8.0] C:\Users\morpp\.gradle\caches\8.8\transforms\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\transformed\browser-1.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.browser:browser:1.8.0] C:\Users\morpp\.gradle\caches\8.8\transforms\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\transformed\browser-1.8.0\AndroidManifest.xml:5:5-44
-MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\3943455d5f53f0d0796ecbc5c914b60f\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\3943455d5f53f0d0796ecbc5c914b60f\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
-MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\morpp\.gradle\caches\8.8\transforms\da879514aa47f09706e29067f37ebdd1\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\morpp\.gradle\caches\8.8\transforms\da879514aa47f09706e29067f37ebdd1\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7c75e7054f11f24bf5282f37adee4691\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
-MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7c75e7054f11f24bf5282f37adee4691\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
 MERGED from [io.github.jan-tennert.supabase:supabase-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\e59b33e82b155f321a5086792bbaf50c\transformed\supabase-kt-debug\AndroidManifest.xml:5:5-44
 MERGED from [io.github.jan-tennert.supabase:supabase-kt-android-debug:3.0.3] C:\Users\morpp\.gradle\caches\8.8\transforms\e59b33e82b155f321a5086792bbaf50c\transformed\supabase-kt-debug\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:21:5-44
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\morpp\.gradle\caches\8.8\transforms\afac27ee2972afa77c2362ae7e79ce6f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\morpp\.gradle\caches\8.8\transforms\afac27ee2972afa77c2362ae7e79ce6f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
 MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\morpp\.gradle\caches\8.8\transforms\777377c143f001ca65aee086faffcef3\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
@@ -200,12 +210,26 @@ MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\User
 MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\7a1d5cdd58ea666d220d7a54c9fbdc2e\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\1f3445f6928be7e1aba5e3cc4707e04b\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\1f3445f6928be7e1aba5e3cc4707e04b\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\8893af895d26a05623e6632537bd74cf\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\8893af895d26a05623e6632537bd74cf\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\590c1d343d882a374a3a02659a22fa11\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\590c1d343d882a374a3a02659a22fa11\transformed\lifecycle-viewmodel-ktx-2.8.7\AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
 MERGED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:21:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\8893af895d26a05623e6632537bd74cf\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\8893af895d26a05623e6632537bd74cf\transformed\lifecycle-viewmodel-savedstate-2.8.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\07a2b293a8fa89296587d234c01a16e7\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\07a2b293a8fa89296587d234c01a16e7\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff1bc793aa0f2440c829ff45bd4b9385\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\ff1bc793aa0f2440c829ff45bd4b9385\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.browser:browser:1.8.0] C:\Users\morpp\.gradle\caches\8.8\transforms\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\transformed\browser-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.browser:browser:1.8.0] C:\Users\morpp\.gradle\caches\8.8\transforms\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\transformed\browser-1.8.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\3943455d5f53f0d0796ecbc5c914b60f\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\3943455d5f53f0d0796ecbc5c914b60f\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\morpp\.gradle\caches\8.8\transforms\da879514aa47f09706e29067f37ebdd1\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] C:\Users\morpp\.gradle\caches\8.8\transforms\da879514aa47f09706e29067f37ebdd1\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7c75e7054f11f24bf5282f37adee4691\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\morpp\.gradle\caches\8.8\transforms\7c75e7054f11f24bf5282f37adee4691\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
 MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\ca4701f11109c169000a9cc894640cd5\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.core:core-ktx:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\ca4701f11109c169000a9cc894640cd5\transformed\core-ktx-1.13.1\AndroidManifest.xml:5:5-44
 MERGED from [androidx.compose.runtime:runtime-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\1c0e176f86cd2eae68fb2f82ffc2cd55\transformed\runtime-release\AndroidManifest.xml:5:5-44
@@ -214,6 +238,8 @@ MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] C:\Users\m
 MERGED from [androidx.compose.runtime:runtime-saveable-android:1.7.3] C:\Users\morpp\.gradle\caches\8.8\transforms\9352a465e710333175e70bdde3bc40d6\transformed\runtime-saveable-release\AndroidManifest.xml:5:5-44
 MERGED from [com.russhwolf:multiplatform-settings-coroutines-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\8811ccbf6d159b549343a421f7d3d8de\transformed\multiplatform-settings-coroutines-debug\AndroidManifest.xml:5:5-44
 MERGED from [com.russhwolf:multiplatform-settings-coroutines-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\8811ccbf6d159b549343a421f7d3d8de\transformed\multiplatform-settings-coroutines-debug\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.gradle\caches\8.8\transforms\cead38e45e540c40ee91c3c3d116acaa\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.gradle\caches\8.8\transforms\cead38e45e540c40ee91c3c3d116acaa\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
 MERGED from [com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\a221ae8f92b72d7af35b20b30643b47a\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:21:5-44
 MERGED from [com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\a221ae8f92b72d7af35b20b30643b47a\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:21:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\morpp\.gradle\caches\8.8\transforms\6ff183c95b188a88615d2ce29f1d4e2f\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
@@ -234,8 +260,6 @@ MERGED from [co.touchlab:kermit-android-debug:2.0.5] C:\Users\morpp\.gradle\cach
 MERGED from [co.touchlab:kermit-android-debug:2.0.5] C:\Users\morpp\.gradle\caches\8.8\transforms\d359a8224e721fd2a6df8bd34bae473b\transformed\kermit-debug\AndroidManifest.xml:5:5-44
 MERGED from [co.touchlab:kermit-core-android-debug:2.0.5] C:\Users\morpp\.gradle\caches\8.8\transforms\147867ad4c5d9275d2ae476dc786a5da\transformed\kermit-core-debug\AndroidManifest.xml:5:5-44
 MERGED from [co.touchlab:kermit-core-android-debug:2.0.5] C:\Users\morpp\.gradle\caches\8.8\transforms\147867ad4c5d9275d2ae476dc786a5da\transformed\kermit-core-debug\AndroidManifest.xml:5:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.gradle\caches\8.8\transforms\cead38e45e540c40ee91c3c3d116acaa\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.4.1] C:\Users\morpp\.gradle\caches\8.8\transforms\cead38e45e540c40ee91c3c3d116acaa\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
 	android:targetSdkVersion
 		INJECTED from D:\Other\MTUCI\Projects\Operque\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
@@ -286,6 +310,12 @@ ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\tran
 		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
 	android:name
 		ADDED from [androidx.emoji2:emoji2:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\ed8621266860e132495597175fd35bd3\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
 permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
@@ -306,12 +336,6 @@ uses-permission#com.morppad.operque.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.13.1] C:\Users\morpp\.gradle\caches\8.8\transforms\434dd41d7b9bd4ba4284222c86c991c8\transformed\core-1.13.1\AndroidManifest.xml:26:22-94
-meta-data#androidx.lifecycle.ProcessLifecycleInitializer
-ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
-	android:value
-		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
-	android:name
-		ADDED from [androidx.lifecycle:lifecycle-process:2.8.7] C:\Users\morpp\.gradle\caches\8.8\transforms\600e0f0a0e1d6e2fcd48b0cc01743ddb\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
 meta-data#com.russhwolf.settings.SettingsInitializer
 ADDED from [com.russhwolf:multiplatform-settings-no-arg-android-debug:1.3.0] C:\Users\morpp\.gradle\caches\8.8\transforms\a221ae8f92b72d7af35b20b30643b47a\transformed\multiplatform-settings-no-arg-debug\AndroidManifest.xml:29:13-31:52
 	android:value

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.morppad.operque.app-mergeDebugResources-44:/values-en-rGB/values-en-rGB.xml",
+            "outputFile": "com.morppad.operque.app-mergeDebugResources-50:/values-en-rGB/values-en-rGB.xml",
             "map": [
                 {
                     "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\8801873331b3b3df777083e35fa7c189\\transformed\\material3-release\\res\\values-en-rGB\\values-en-rGB.xml",
