@@ -4,24 +4,24 @@
             "outputFile": "com.morppad.operque.app-mergeDebugResources-50:/values-th/values-th.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\ff1bc793aa0f2440c829ff45bd4b9385\\transformed\\ui-release\\res\\values-th\\values-th.xml",
+                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\57e8bbb77cd59aab331752bfb71f56af\\transformed\\browser-1.8.0\\res\\values-th\\values-th.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,191,268,365,466,554,639,724,810,893,979,1068,1141,1216,1292,1368,1446,1513",
-                        "endColumns": "85,76,96,100,87,84,84,85,82,85,88,72,74,75,75,77,66,122",
-                        "endOffsets": "186,263,360,461,549,634,719,805,888,974,1063,1136,1211,1287,1363,1441,1508,1631"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,158,257,368",
+                        "endColumns": "102,98,110,97",
+                        "endOffsets": "153,252,363,461"
                     },
                     "to": {
-                        "startLines": "9,10,12,13,14,18,19,77,78,79,80,81,82,83,84,86,87,88",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "820,906,1086,1183,1284,1680,1765,7970,8056,8139,8225,8314,8387,8462,8538,8715,8793,8860",
-                        "endColumns": "85,76,96,100,87,84,84,85,82,85,88,72,74,75,75,77,66,122",
-                        "endOffsets": "901,978,1178,1279,1367,1760,1845,8051,8134,8220,8309,8382,8457,8533,8609,8788,8855,8978"
+                        "startLines": "11,15,16,17",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "983,1372,1471,1582",
+                        "endColumns": "102,98,110,97",
+                        "endOffsets": "1081,1466,1577,1675"
                     }
                 },
                 {
-                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\8801873331b3b3df777083e35fa7c189\\transformed\\material3-release\\res\\values-th\\values-th.xml",
+                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\01ae9d40bf622f82d7656dd45aa8c116\\transformed\\material3-release\\res\\values-th\\values-th.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\434dd41d7b9bd4ba4284222c86c991c8\\transformed\\core-1.13.1\\res\\values-th\\values-th.xml",
+                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\d494b39e5ea1a27d8a0782d649788cd2\\transformed\\core-1.13.1\\res\\values-th\\values-th.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -55,7 +55,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\6ae65928723b5e63f66fa382b2644a4f\\transformed\\foundation-release\\res\\values-th\\values-th.xml",
+                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\b1ae7e641cf4ee2422cd7d2dc8e4e8cb\\transformed\\ui-release\\res\\values-th\\values-th.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,191,268,365,466,554,639,724,810,893,979,1068,1141,1216,1292,1368,1446,1513",
+                        "endColumns": "85,76,96,100,87,84,84,85,82,85,88,72,74,75,75,77,66,122",
+                        "endOffsets": "186,263,360,461,549,634,719,805,888,974,1063,1136,1211,1287,1363,1441,1508,1631"
+                    },
+                    "to": {
+                        "startLines": "9,10,12,13,14,18,19,77,78,79,80,81,82,83,84,86,87,88",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "820,906,1086,1183,1284,1680,1765,7970,8056,8139,8225,8314,8387,8462,8538,8715,8793,8860",
+                        "endColumns": "85,76,96,100,87,84,84,85,82,85,88,72,74,75,75,77,66,122",
+                        "endOffsets": "901,978,1178,1279,1367,1760,1845,8051,8134,8220,8309,8382,8457,8533,8609,8788,8855,8978"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\b4cc36d7483465bee5bdd361eb39feae\\transformed\\foundation-release\\res\\values-th\\values-th.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -69,23 +86,6 @@
                         "startOffsets": "8983,9080",
                         "endColumns": "96,94",
                         "endOffsets": "9075,9170"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\morpp\\.gradle\\caches\\8.8\\transforms\\c2005b48e0c36ae7ddb0b4c7ea7ce1a0\\transformed\\browser-1.8.0\\res\\values-th\\values-th.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,158,257,368",
-                        "endColumns": "102,98,110,97",
-                        "endOffsets": "153,252,363,461"
-                    },
-                    "to": {
-                        "startLines": "11,15,16,17",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "983,1372,1471,1582",
-                        "endColumns": "102,98,110,97",
-                        "endOffsets": "1081,1466,1577,1675"
                     }
                 }
             ]
