@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Operque</string>
-    <style name="Theme.App.Starting" parent="android:style/Theme.Material.Light.NoActionBar"/>
-</resources>
