@@ -8,11 +8,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.morppad.operque.ui.screens.AuthRoute
 import com.morppad.operque.ui.screens.AuthViewModel
-import com.morppad.operque.ui.screens.HomeScreen
+import com.morppad.operque.ui.screens.UserHomeRoute
 
 private object Routes {
     const val Auth = "auth"
-    const val Home = "home"
+    const val UserHome = "user_home"
 }
 
 @Composable
@@ -21,17 +21,17 @@ fun AppNavigation(authViewModel: AuthViewModel = viewModel()) {
     NavHost(navController = navController, startDestination = Routes.Auth) {
         composable(Routes.Auth) {
             AuthRoute(viewModel = authViewModel, onAuthorized = {
-                navController.navigate(Routes.Home) {
+                navController.navigate(Routes.UserHome) {
                     popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
                     launchSingleTop = true
                 }
             })
         }
-        composable(Routes.Home) {
-            HomeScreen(onLogout = {
+        composable(Routes.UserHome) {
+            UserHomeRoute(onLogout = {
                 authViewModel.signOut()
                 navController.navigate(Routes.Auth) {
-                    popUpTo(Routes.Home) { inclusive = true }
+                    popUpTo(Routes.UserHome) { inclusive = true }
                     launchSingleTop = true
                 }
             })
