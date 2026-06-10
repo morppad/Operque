@@ -4,11 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.morppad.operque.data.model.Comment
 import com.morppad.operque.data.model.Profile
+import com.morppad.operque.data.model.ProfileRole
 import com.morppad.operque.data.model.Task
 import com.morppad.operque.data.model.TaskStatus
 import com.morppad.operque.data.repository.CommentRepository
 import com.morppad.operque.data.repository.ProfileRepository
 import com.morppad.operque.data.repository.TaskRepository
+import com.morppad.operque.data.repository.UserManagementRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,7 +20,8 @@ import kotlinx.coroutines.launch
 class ManagerHomeViewModel(
     private val profileRepository: ProfileRepository = ProfileRepository(),
     private val taskRepository: TaskRepository = TaskRepository(),
-    private val commentRepository: CommentRepository = CommentRepository()
+    private val commentRepository: CommentRepository = CommentRepository(),
+    private val userManagementRepository: UserManagementRepository = UserManagementRepository()
 ) : ViewModel() {
     private val _state = MutableStateFlow(ManagerHomeUiState())
     val state: StateFlow<ManagerHomeUiState> = _state.asStateFlow()
@@ -31,18 +34,20 @@ class ManagerHomeViewModel(
         viewModelScope.launch {
             _state.update { it.copy(isLoading = true, errorMessage = null) }
             runCatching {
-                Triple(
+                ManagerData(
                     profileRepository.getCurrentProfile(),
+                    profileRepository.getAllProfiles(),
                     profileRepository.getEmployees(),
                     taskRepository.getAllTasks()
                 )
-            }.onSuccess { (profile, employees, tasks) ->
+            }.onSuccess { data ->
                 _state.update {
                     it.copy(
-                        managerProfile = profile,
-                        employees = employees,
-                        tasks = tasks,
-                        selectedEmployeeId = it.selectedEmployeeId ?: employees.firstOrNull()?.id,
+                        managerProfile = data.profile,
+                        profiles = data.profiles,
+                        employees = data.employees,
+                        tasks = data.tasks,
+                        selectedEmployeeId = it.selectedEmployeeId ?: data.employees.firstOrNull()?.id,
                         isLoading = false
                     )
                 }
@@ -54,6 +59,28 @@ class ManagerHomeViewModel(
 
     fun openCreateTask() = _state.update {
         it.copy(screen = ManagerScreen.CreateTask, errorMessage = null)
+    }
+
+    fun openUsers() = _state.update {
+        it.copy(screen = ManagerScreen.UserList, errorMessage = null)
+    }
+
+    fun openCreateUser() = _state.update {
+        it.copy(screen = ManagerScreen.CreateUser, errorMessage = null)
+    }
+
+    fun closeUsers() = _state.update {
+        it.copy(screen = ManagerScreen.TaskList, errorMessage = null)
+    }
+
+    fun closeCreateUser() = _state.update {
+        it.copy(
+            screen = ManagerScreen.UserList,
+            newUserEmail = "",
+            newUserPassword = "",
+            newUserRole = ProfileRole.User,
+            errorMessage = null
+        )
     }
 
     fun closeCreateTask() = _state.update {
@@ -111,6 +138,84 @@ class ManagerHomeViewModel(
         }
     }
 
+    fun onNewUserEmailChange(value: String) = _state.update {
+        it.copy(newUserEmail = value, errorMessage = null)
+    }
+
+    fun onNewUserPasswordChange(value: String) = _state.update {
+        it.copy(newUserPassword = value, errorMessage = null)
+    }
+
+    fun onNewUserRoleChange(value: String) = _state.update {
+        it.copy(newUserRole = value, errorMessage = null)
+    }
+
+    fun createUser() {
+        val current = state.value
+        if (!current.newUserEmail.contains("@")) {
+            _state.update { it.copy(errorMessage = "Введите корректный email") }
+            return
+        }
+        if (current.newUserPassword.length < 6) {
+            _state.update { it.copy(errorMessage = "Пароль должен содержать минимум 6 символов") }
+            return
+        }
+
+        viewModelScope.launch {
+            _state.update { it.copy(isSaving = true, errorMessage = null) }
+            runCatching {
+                userManagementRepository.createUser(
+                    current.newUserEmail,
+                    current.newUserPassword,
+                    current.newUserRole
+                )
+                loadProfiles()
+            }.onSuccess { (profiles, employees) ->
+                _state.update {
+                    it.copy(
+                        profiles = profiles,
+                        employees = employees,
+                        screen = ManagerScreen.UserList,
+                        newUserEmail = "",
+                        newUserPassword = "",
+                        newUserRole = ProfileRole.User,
+                        isSaving = false
+                    )
+                }
+            }.onFailure { throwable ->
+                _state.update { it.copy(isSaving = false, errorMessage = throwable.toManagerMessage()) }
+            }
+        }
+    }
+
+    fun updateUserRole(userId: String, role: String) {
+        viewModelScope.launch {
+            _state.update { it.copy(isSaving = true, errorMessage = null) }
+            runCatching {
+                profileRepository.updateRole(userId, role)
+                loadProfiles()
+            }.onSuccess { (profiles, employees) ->
+                _state.update { it.copy(profiles = profiles, employees = employees, isSaving = false) }
+            }.onFailure { throwable ->
+                _state.update { it.copy(isSaving = false, errorMessage = throwable.toManagerMessage()) }
+            }
+        }
+    }
+
+    fun deleteUser(userId: String) {
+        viewModelScope.launch {
+            _state.update { it.copy(isSaving = true, errorMessage = null) }
+            runCatching {
+                userManagementRepository.deleteUser(userId)
+                loadProfiles()
+            }.onSuccess { (profiles, employees) ->
+                _state.update { it.copy(profiles = profiles, employees = employees, isSaving = false) }
+            }.onFailure { throwable ->
+                _state.update { it.copy(isSaving = false, errorMessage = throwable.toManagerMessage()) }
+            }
+        }
+    }
+
     fun openTask(task: Task) {
         viewModelScope.launch {
             _state.update {
@@ -154,6 +259,33 @@ class ManagerHomeViewModel(
         }
     }
 
+    fun deleteSelectedTask() {
+        val taskId = state.value.selectedTask?.id ?: return
+        deleteTask(taskId)
+    }
+
+    fun deleteTask(taskId: String) {
+        viewModelScope.launch {
+            _state.update { it.copy(isSaving = true, errorMessage = null) }
+            runCatching {
+                taskRepository.deleteTaskAsManager(taskId)
+                taskRepository.getAllTasks()
+            }.onSuccess { tasks ->
+                _state.update {
+                    it.copy(
+                        tasks = tasks,
+                        selectedTask = if (it.selectedTask?.id == taskId) null else it.selectedTask,
+                        comments = if (it.selectedTask?.id == taskId) emptyList() else it.comments,
+                        screen = if (it.selectedTask?.id == taskId) ManagerScreen.TaskList else it.screen,
+                        isSaving = false
+                    )
+                }
+            }.onFailure { throwable ->
+                _state.update { it.copy(isSaving = false, errorMessage = throwable.toManagerMessage()) }
+            }
+        }
+    }
+
     fun onNewCommentChange(value: String) = _state.update {
         it.copy(newCommentText = value, errorMessage = null)
     }
@@ -190,10 +322,15 @@ class ManagerHomeViewModel(
                 }
             }
     }
+
+    private suspend fun loadProfiles(): Pair<List<Profile>, List<Profile>> {
+        return profileRepository.getAllProfiles() to profileRepository.getEmployees()
+    }
 }
 
 data class ManagerHomeUiState(
     val managerProfile: Profile? = null,
+    val profiles: List<Profile> = emptyList(),
     val employees: List<Profile> = emptyList(),
     val tasks: List<Task> = emptyList(),
     val selectedTask: Task? = null,
@@ -203,15 +340,28 @@ data class ManagerHomeUiState(
     val newTaskTitle: String = "",
     val newTaskDescription: String = "",
     val newCommentText: String = "",
+    val newUserEmail: String = "",
+    val newUserPassword: String = "",
+    val newUserRole: String = ProfileRole.User,
     val isLoading: Boolean = false,
     val isLoadingComments: Boolean = false,
     val isSaving: Boolean = false,
     val errorMessage: String? = null
 )
 
-enum class ManagerScreen { TaskList, CreateTask, TaskDetails }
+enum class ManagerScreen { TaskList, CreateTask, TaskDetails, UserList, CreateUser }
+
+private data class ManagerData(
+    val profile: Profile?,
+    val profiles: List<Profile>,
+    val employees: List<Profile>,
+    val tasks: List<Task>
+)
 
 private fun Throwable.toManagerMessage(): String {
     val message = message.orEmpty().substringBefore("URL:").trim()
+    if (message.contains("NOT_FOUND") || message.contains("Requested function was not found")) {
+        return "Функция управления пользователями не развернута в Supabase"
+    }
     return message.ifBlank { "Operation failed" }
 }

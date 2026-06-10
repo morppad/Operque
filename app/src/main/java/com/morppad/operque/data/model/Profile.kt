@@ -12,6 +12,8 @@ object ProfileRole {
     const val Admin = "admin"
 
     fun canManageTasks(role: String): Boolean = role == Manager || role == Admin
+
+    val Manageable = listOf(User, Manager, Admin)
 }
 
 @Serializable
@@ -28,4 +30,13 @@ data class ProfileUpsertDto(
     val id: String,
     val email: String,
     val role: String = DefaultProfileRole
+)
+
+@Serializable
+data class ManageUserRequest(
+    val action: String,
+    val userId: String? = null,
+    val email: String? = null,
+    val password: String? = null,
+    val role: String? = null
 )

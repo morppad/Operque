@@ -42,12 +42,6 @@ on public.profiles
 for insert
 with check (auth.uid() = id);
 
-create policy "Profiles are updatable by owner"
-on public.profiles
-for update
-using (auth.uid() = id)
-with check (auth.uid() = id);
-
 insert into public.profiles (id, email, role)
 select id, email, 'user'
 from auth.users

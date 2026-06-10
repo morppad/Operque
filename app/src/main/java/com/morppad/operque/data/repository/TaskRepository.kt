@@ -54,4 +54,10 @@ class TaskRepository {
             filter { eq("id", taskId) }
         }
     }
+
+    suspend fun deleteTaskAsManager(taskId: String) {
+        client.from(TasksTable).delete {
+            filter { eq("id", taskId) }
+        }
+    }
 }
