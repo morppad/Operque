@@ -1,0 +1,66 @@
+create or replace function public.current_profile_role()
+returns text
+language sql
+security definer
+set search_path = public
+stable
+as $$
+    select role
+    from public.profiles
+    where id = auth.uid()
+$$;
+
+create or replace function public.can_manage_tasks()
+returns boolean
+language sql
+security definer
+set search_path = public
+stable
+as $$
+    select coalesce(public.current_profile_role() in ('manager', 'admin'), false)
+$$;
+
+drop policy if exists "Managers can read profiles" on public.profiles;
+create policy "Managers can read profiles"
+on public.profiles
+for select
+using (auth.uid() = id or public.can_manage_tasks());
+
+drop policy if exists "Managers can read tasks" on public.tasks;
+create policy "Managers can read tasks"
+on public.tasks
+for select
+using (public.can_manage_tasks());
+
+drop policy if exists "Managers can create tasks" on public.tasks;
+create policy "Managers can create tasks"
+on public.tasks
+for insert
+with check (
+    public.can_manage_tasks()
+    and exists (
+        select 1
+        from public.profiles
+        where profiles.id = tasks.user_id
+          and profiles.role = 'user'
+    )
+);
+
+drop policy if exists "Managers can update tasks" on public.tasks;
+create policy "Managers can update tasks"
+on public.tasks
+for update
+using (public.can_manage_tasks())
+with check (public.can_manage_tasks());
+
+drop policy if exists "Managers can read comments" on public.comments;
+create policy "Managers can read comments"
+on public.comments
+for select
+using (public.can_manage_tasks());
+
+drop policy if exists "Managers can create comments" on public.comments;
+create policy "Managers can create comments"
+on public.comments
+for insert
+with check (auth.uid() = user_id and public.can_manage_tasks());

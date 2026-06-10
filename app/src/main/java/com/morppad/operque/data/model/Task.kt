@@ -27,6 +27,15 @@ data class Task(
 )
 
 @Serializable
+data class CreateTaskDto(
+    @SerialName("user_id")
+    val userId: String,
+    val title: String,
+    val description: String? = null,
+    val status: String = TaskStatus.Todo
+)
+
+@Serializable
 data class UpdateTaskStatusDto(
     val status: String
 )

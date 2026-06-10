@@ -6,6 +6,14 @@ import kotlinx.serialization.Serializable
 
 const val DefaultProfileRole = "user"
 
+object ProfileRole {
+    const val User = "user"
+    const val Manager = "manager"
+    const val Admin = "admin"
+
+    fun canManageTasks(role: String): Boolean = role == Manager || role == Admin
+}
+
 @Serializable
 data class Profile(
     val id: String,
