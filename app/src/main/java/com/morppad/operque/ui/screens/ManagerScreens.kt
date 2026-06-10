@@ -1,7 +1,10 @@
 package com.morppad.operque.ui.screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,31 +13,30 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FilterChip
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.morppad.operque.data.model.Comment
 import com.morppad.operque.data.model.Profile
 import com.morppad.operque.data.model.Task
 import com.morppad.operque.data.model.TaskStatus
+import com.morppad.operque.ui.theme.JiraBlueLight
+import com.morppad.operque.ui.theme.JiraBorder
+import com.morppad.operque.ui.theme.JiraTextSubtle
 
 @Composable
 fun ManagerHomeRoute(
@@ -42,6 +44,14 @@ fun ManagerHomeRoute(
     viewModel: ManagerHomeViewModel = viewModel()
 ) {
     val state by viewModel.state.collectAsState()
+
+    BackHandler(enabled = state.screen != ManagerScreen.TaskList) {
+        when (state.screen) {
+            ManagerScreen.CreateTask -> viewModel.closeCreateTask()
+            ManagerScreen.TaskDetails -> viewModel.closeTaskDetails()
+            ManagerScreen.TaskList -> Unit
+        }
+    }
 
     ManagerHomeScreen(
         state = state,
@@ -61,7 +71,6 @@ fun ManagerHomeRoute(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ManagerHomeScreen(
     state: ManagerHomeUiState,
@@ -79,122 +88,98 @@ fun ManagerHomeScreen(
     onNewCommentChange: (String) -> Unit,
     onAddComment: () -> Unit
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Operque manager") },
-                actions = {
-                    TextButton(onClick = onRefresh, enabled = !state.isLoading && !state.isSaving) { Text("Refresh") }
-                    TextButton(onClick = onLogout) { Text("Logout") }
-                }
-            )
-        }
-    ) { padding ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(padding)
-                .padding(16.dp)
-        ) {
+    val title = when (state.screen) {
+        ManagerScreen.TaskList -> "Управление задачами"
+        ManagerScreen.CreateTask -> "Новая задача"
+        ManagerScreen.TaskDetails -> "Детали задачи"
+    }
+
+    OperqueScaffold(
+        title = title,
+        subtitle = state.managerProfile?.email,
+        onRefresh = if (state.screen == ManagerScreen.TaskList) onRefresh else null,
+        refreshEnabled = !state.isLoading && !state.isSaving,
+        onLogout = onLogout
+    ) { modifier ->
+        Column(modifier = modifier) {
             state.errorMessage?.let {
-                Text(it, color = MaterialTheme.colorScheme.error)
+                ErrorBanner(it)
                 Spacer(Modifier.height(12.dp))
             }
 
-            when (state.screen) {
-                ManagerScreen.TaskList -> ManagerTaskListContent(
-                    state = state,
-                    onOpenCreateTask = onOpenCreateTask,
-                    onOpenTask = onOpenTask
-                )
-
-                ManagerScreen.CreateTask -> ManagerCreateTaskContent(
-                    state = state,
-                    onSelectEmployee = onSelectEmployee,
-                    onTitleChange = onNewTaskTitleChange,
-                    onDescriptionChange = onNewTaskDescriptionChange,
-                    onCreateTask = onCreateTask,
-                    onBack = onCloseCreateTask
-                )
-
-                ManagerScreen.TaskDetails -> ManagerTaskDetailsContent(
-                    state = state,
-                    onBack = onCloseTaskDetails,
-                    onChangeTaskStatus = onChangeTaskStatus,
-                    onCommentChange = onNewCommentChange,
-                    onAddComment = onAddComment
-                )
+            Box(modifier = Modifier.weight(1f)) {
+                when (state.screen) {
+                    ManagerScreen.TaskList -> ManagerTaskList(state, onRefresh, onOpenCreateTask, onOpenTask)
+                    ManagerScreen.CreateTask -> ManagerCreateTask(
+                        state,
+                        onSelectEmployee,
+                        onNewTaskTitleChange,
+                        onNewTaskDescriptionChange,
+                        onCreateTask,
+                        onCloseCreateTask
+                    )
+                    ManagerScreen.TaskDetails -> ManagerTaskDetails(
+                        state,
+                        onCloseTaskDetails,
+                        onChangeTaskStatus,
+                        onNewCommentChange,
+                        onAddComment
+                    )
+                }
             }
         }
     }
 }
 
 @Composable
-private fun ManagerTaskListContent(
+private fun ManagerTaskList(
     state: ManagerHomeUiState,
-    onOpenCreateTask: () -> Unit,
+    onRefresh: () -> Unit,
+    onCreate: () -> Unit,
     onOpenTask: (Task) -> Unit
 ) {
-    Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-        Column {
-            Text("Tasks", style = MaterialTheme.typography.headlineSmall)
-            Text(
-                state.managerProfile?.email.orEmpty(),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-        Button(onClick = onOpenCreateTask, enabled = !state.isSaving && state.employees.isNotEmpty()) {
-            Text("Assign")
-        }
-    }
-
-    Spacer(Modifier.height(16.dp))
-
     if (state.isLoading) {
-        CircularProgressIndicator()
+        LoadingState("Загружаем задачи команды...")
         return
     }
 
-    if (state.tasks.isEmpty()) {
-        Text("No tasks yet", style = MaterialTheme.typography.bodyLarge)
-        return
-    }
-
-    LazyColumn(verticalArrangement = Arrangement.spacedBy(10.dp)) {
-        items(state.tasks, key = { it.id }) { task ->
-            ManagerTaskListItem(
-                task = task,
-                employeeEmail = state.employeeEmail(task.userId),
-                onClick = { onOpenTask(task) }
-            )
-        }
-    }
-}
-
-@Composable
-private fun ManagerTaskListItem(task: Task, employeeEmail: String, onClick: () -> Unit) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clickable(onClick = onClick)
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
-        Column(modifier = Modifier.padding(14.dp)) {
-            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                Text(task.title, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
-                AssistChip(onClick = onClick, label = { Text(task.status.label()) })
+        item {
+            SectionHeader(
+                title = "Задачи команды",
+                supporting = "Задач: ${state.tasks.size}  •  Сотрудников: ${state.employees.size}",
+                actionLabel = "Назначить",
+                onAction = onCreate
+            )
+            Spacer(Modifier.height(12.dp))
+        }
+
+        if (state.tasks.isEmpty()) {
+            item {
+                EmptyState(
+                    title = "Задач пока нет",
+                    body = "Создайте первую задачу и назначьте ее сотруднику.",
+                    actionLabel = if (state.employees.isEmpty()) "Обновить" else "Назначить задачу",
+                    onAction = if (state.employees.isEmpty()) onRefresh else onCreate
+                )
             }
-            Text(employeeEmail, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            task.description?.takeIf { it.isNotBlank() }?.let {
-                Spacer(Modifier.height(6.dp))
-                Text(it, style = MaterialTheme.typography.bodyMedium)
+        } else {
+            items(state.tasks, key = { it.id }) { task ->
+                TaskCard(
+                    task = task,
+                    assignee = state.employeeEmail(task.userId),
+                    onClick = { onOpenTask(task) }
+                )
             }
         }
     }
 }
 
 @Composable
-private fun ManagerCreateTaskContent(
+private fun ManagerCreateTask(
     state: ManagerHomeUiState,
     onSelectEmployee: (String) -> Unit,
     onTitleChange: (String) -> Unit,
@@ -202,16 +187,30 @@ private fun ManagerCreateTaskContent(
     onCreateTask: () -> Unit,
     onBack: () -> Unit
 ) {
-    Text("Assign task", style = MaterialTheme.typography.headlineSmall)
-    Spacer(Modifier.height(16.dp))
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        item {
+            TextButton(onClick = onBack, enabled = !state.isSaving) { Text("Назад") }
+            SectionHeader(
+                title = "Назначить задачу",
+                supporting = "Выберите исполнителя и опишите ожидаемый результат."
+            )
+        }
 
-    Text("Employee", style = MaterialTheme.typography.titleMedium)
-    Spacer(Modifier.height(8.dp))
+        item {
+            Text("Исполнитель", style = MaterialTheme.typography.titleMedium)
+        }
 
-    if (state.employees.isEmpty()) {
-        Text("No employees found", color = MaterialTheme.colorScheme.onSurfaceVariant)
-    } else {
-        LazyColumn(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        if (state.employees.isEmpty()) {
+            item {
+                EmptyState(
+                    title = "Сотрудники не найдены",
+                    body = "Для назначения задачи нужен профиль с ролью user."
+                )
+            }
+        } else {
             items(state.employees, key = { it.id }) { employee ->
                 EmployeeOption(
                     employee = employee,
@@ -220,30 +219,37 @@ private fun ManagerCreateTaskContent(
                 )
             }
         }
-    }
 
-    Spacer(Modifier.height(16.dp))
-    OutlinedTextField(
-        value = state.newTaskTitle,
-        onValueChange = onTitleChange,
-        label = { Text("Title") },
-        singleLine = true,
-        modifier = Modifier.fillMaxWidth()
-    )
-    Spacer(Modifier.height(12.dp))
-    OutlinedTextField(
-        value = state.newTaskDescription,
-        onValueChange = onDescriptionChange,
-        label = { Text("Description") },
-        minLines = 4,
-        modifier = Modifier.fillMaxWidth()
-    )
-    Spacer(Modifier.height(16.dp))
-    Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-        Button(onClick = onCreateTask, enabled = !state.isSaving && state.employees.isNotEmpty()) {
-            Text(if (state.isSaving) "Saving..." else "Create")
+        item {
+            OutlinedTextField(
+                value = state.newTaskTitle,
+                onValueChange = onTitleChange,
+                label = { Text("Название задачи") },
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(Modifier.height(12.dp))
+            OutlinedTextField(
+                value = state.newTaskDescription,
+                onValueChange = onDescriptionChange,
+                label = { Text("Описание") },
+                minLines = 4,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(Modifier.height(16.dp))
+            Button(
+                onClick = onCreateTask,
+                enabled = !state.isSaving &&
+                    state.selectedEmployeeId != null &&
+                    state.newTaskTitle.isNotBlank(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+            ) {
+                Text(if (state.isSaving) "Создание..." else "Создать и назначить")
+            }
+            Spacer(Modifier.height(12.dp))
         }
-        TextButton(onClick = onBack, enabled = !state.isSaving) { Text("Cancel") }
     }
 }
 
@@ -252,20 +258,36 @@ private fun EmployeeOption(employee: Profile, selected: Boolean, onSelect: () ->
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable(onClick = onSelect)
+            .clickable(onClick = onSelect),
+        colors = CardDefaults.cardColors(
+            containerColor = if (selected) JiraBlueLight else MaterialTheme.colorScheme.surface
+        ),
+        border = BorderStroke(1.dp, JiraBorder)
     ) {
-        Row(modifier = Modifier.padding(10.dp), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            RadioButton(selected = selected, onClick = onSelect)
-            Column {
-                Text(employee.email, style = MaterialTheme.typography.bodyLarge)
-                Text(employee.role, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            RadioButton(
+                selected = selected,
+                onClick = onSelect,
+                colors = RadioButtonDefaults.colors(
+                    selectedColor = MaterialTheme.colorScheme.primary,
+                    unselectedColor = JiraTextSubtle
+                )
+            )
+            Column(modifier = Modifier.padding(start = 8.dp)) {
+                Text(employee.email, style = MaterialTheme.typography.titleMedium)
+                Text("Сотрудник", style = MaterialTheme.typography.bodySmall, color = JiraTextSubtle)
             }
         }
     }
 }
 
 @Composable
-private fun ManagerTaskDetailsContent(
+private fun ManagerTaskDetails(
     state: ManagerHomeUiState,
     onBack: () -> Unit,
     onChangeTaskStatus: (String) -> Unit,
@@ -274,74 +296,83 @@ private fun ManagerTaskDetailsContent(
 ) {
     val task = state.selectedTask ?: return
 
-    TextButton(onClick = onBack) { Text("Back") }
-    Text(task.title, style = MaterialTheme.typography.headlineSmall)
-    Text(state.employeeEmail(task.userId), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-
-    task.description?.takeIf { it.isNotBlank() }?.let {
-        Spacer(Modifier.height(8.dp))
-        Text(it, style = MaterialTheme.typography.bodyLarge)
-    }
-
-    Spacer(Modifier.height(16.dp))
-    Text("Status", style = MaterialTheme.typography.titleMedium)
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        TaskStatus.All.forEach { status ->
-            FilterChip(
-                selected = task.status == status,
-                onClick = { onChangeTaskStatus(status) },
-                enabled = !state.isSaving,
-                label = { Text(status.label()) }
-            )
+    LazyColumn(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
+        item {
+            TextButton(onClick = onBack) { Text("Назад к задачам") }
+            Text(task.title, style = MaterialTheme.typography.headlineSmall)
+            Spacer(Modifier.height(4.dp))
+            Text(state.employeeEmail(task.userId), color = JiraTextSubtle)
+            Spacer(Modifier.height(8.dp))
+            StatusBadge(task.status)
         }
-    }
 
-    Spacer(Modifier.height(20.dp))
-    Text("Comments", style = MaterialTheme.typography.titleMedium)
-    Spacer(Modifier.height(8.dp))
-
-    if (state.isLoadingComments) {
-        CircularProgressIndicator()
-    } else if (state.comments.isEmpty()) {
-        Text("No comments yet", color = MaterialTheme.colorScheme.onSurfaceVariant)
-    } else {
-        LazyColumn(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            items(state.comments, key = { it.id }) { comment ->
-                ManagerCommentItem(comment)
+        item {
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+                border = BorderStroke(1.dp, JiraBorder)
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Text("Описание", style = MaterialTheme.typography.titleMedium)
+                    Spacer(Modifier.height(6.dp))
+                    Text(
+                        task.description?.takeIf { it.isNotBlank() } ?: "Описание не добавлено",
+                        color = JiraTextSubtle,
+                        style = MaterialTheme.typography.bodyLarge
+                    )
+                }
             }
         }
-    }
 
-    Spacer(Modifier.height(12.dp))
-    OutlinedTextField(
-        value = state.newCommentText,
-        onValueChange = onCommentChange,
-        label = { Text("Comment") },
-        minLines = 2,
-        modifier = Modifier.fillMaxWidth()
-    )
-    Spacer(Modifier.height(10.dp))
-    Button(onClick = onAddComment, enabled = !state.isSaving, modifier = Modifier.fillMaxWidth()) {
-        Text(if (state.isSaving) "Sending..." else "Send comment")
-    }
-}
+        item {
+            Text("Изменить статус", style = MaterialTheme.typography.titleMedium)
+            Spacer(Modifier.height(8.dp))
+            LazyRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                items(TaskStatus.All) { status ->
+                    JiraFilterChip(
+                        selected = task.status == status,
+                        onClick = { onChangeTaskStatus(status) },
+                        enabled = !state.isSaving,
+                        label = statusLabel(status)
+                    )
+                }
+            }
+        }
 
-@Composable
-private fun ManagerCommentItem(comment: Comment) {
-    Card(modifier = Modifier.fillMaxWidth()) {
-        Column(modifier = Modifier.padding(12.dp)) {
-            Text(comment.text, style = MaterialTheme.typography.bodyMedium)
+        item { Text("Комментарии", style = MaterialTheme.typography.titleMedium) }
+
+        if (state.isLoadingComments) {
+            item { Text("Загрузка комментариев...", color = JiraTextSubtle) }
+        } else if (state.comments.isEmpty()) {
+            item { Text("Комментариев пока нет", color = JiraTextSubtle) }
+        } else {
+            items(state.comments, key = { it.id }) { comment -> CommentCard(comment) }
+        }
+
+        item {
+            OutlinedTextField(
+                value = state.newCommentText,
+                onValueChange = onCommentChange,
+                label = { Text("Комментарий менеджера") },
+                minLines = 3,
+                modifier = Modifier.fillMaxWidth()
+            )
+            Spacer(Modifier.height(10.dp))
+            Button(
+                onClick = onAddComment,
+                enabled = !state.isSaving && state.newCommentText.isNotBlank(),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(if (state.isSaving) "Отправка..." else "Отправить комментарий")
+            }
+            Spacer(Modifier.height(12.dp))
         }
     }
 }
 
 private fun ManagerHomeUiState.employeeEmail(userId: String): String {
     return employees.firstOrNull { it.id == userId }?.email ?: userId
-}
-
-private fun String.label(): String = when (this) {
-    TaskStatus.Todo -> "To do"
-    TaskStatus.InProgress -> "In progress"
-    TaskStatus.Done -> "Done"
-    else -> this
 }

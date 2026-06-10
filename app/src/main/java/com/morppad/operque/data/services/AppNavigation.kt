@@ -2,7 +2,6 @@ package com.morppad.operque.data.services
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -26,7 +25,7 @@ fun AppNavigation(authViewModel: AuthViewModel = viewModel()) {
         composable(Routes.Auth) {
             AuthRoute(viewModel = authViewModel, onAuthorized = {
                 navController.navigate(Routes.RoleGate) {
-                    popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
+                    popUpTo(navController.graph.id) { inclusive = true }
                     launchSingleTop = true
                 }
             })
@@ -49,19 +48,21 @@ fun AppNavigation(authViewModel: AuthViewModel = viewModel()) {
         }
         composable(Routes.UserHome) {
             UserHomeRoute(onLogout = {
-                authViewModel.signOut()
-                navController.navigate(Routes.Auth) {
-                    popUpTo(Routes.UserHome) { inclusive = true }
-                    launchSingleTop = true
+                authViewModel.signOut {
+                    navController.navigate(Routes.Auth) {
+                        popUpTo(navController.graph.id) { inclusive = true }
+                        launchSingleTop = true
+                    }
                 }
             })
         }
         composable(Routes.ManagerHome) {
             ManagerHomeRoute(onLogout = {
-                authViewModel.signOut()
-                navController.navigate(Routes.Auth) {
-                    popUpTo(Routes.ManagerHome) { inclusive = true }
-                    launchSingleTop = true
+                authViewModel.signOut {
+                    navController.navigate(Routes.Auth) {
+                        popUpTo(navController.graph.id) { inclusive = true }
+                        launchSingleTop = true
+                    }
                 }
             })
         }

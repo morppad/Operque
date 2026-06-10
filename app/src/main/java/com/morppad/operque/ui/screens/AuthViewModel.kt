@@ -59,10 +59,12 @@ class AuthViewModel(private val repository: AuthRepository = AuthRepository()) :
 
     fun clearRegistrationCompleted() = _state.update { it.copy(registrationCompleted = false) }
 
-    fun signOut() {
+    fun signOut(onSignedOut: () -> Unit) {
+        _state.update { it.copy(isAuthorized = false, isLoading = true, errorMessage = null) }
         viewModelScope.launch {
             runCatching { repository.signOut() }
             _state.value = AuthUiState(isConfigured = repository.isConfigured())
+            onSignedOut()
         }
     }
 
